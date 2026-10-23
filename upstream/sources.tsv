@@ -26,3 +26,6 @@ skills/design-eng	emilkowalski/skills	2d228630ba1446365f614a108cb8252f1feda202	s
 skills/plan	affaan-m/ECC	90606c8315ee09cafc303515c5f33024db6b9882	commands/plan.md
 agents/code-reviewer.md	affaan-m/ECC	90606c8315ee09cafc303515c5f33024db6b9882	agents/code-reviewer.md
 agents/security-reviewer.md	affaan-m/ECC	90606c8315ee09cafc303515c5f33024db6b9882	agents/security-reviewer.md
+skills/debug	mattpocock/skills	5beb35b040e3de97e54fa9e386d7e42d15c295c2	skills/engineering/diagnosing-bugs
+skills/grill	mattpocock/skills	5beb35b040e3de97e54fa9e386d7e42d15c295c2	skills/productivity/grilling
+skills/agent-writing	mattpocock/skills	5beb35b040e3de97e54fa9e386d7e42d15c295c2	skills/productivity/writing-for-agents

@@ -1,7 +1,7 @@
 ---
 name: plan
 description: Restate requirements, assess risks, and create a step-by-step implementation plan. WAIT for user confirmation before touching any code.
-argument-hint: "[feature description | path/to/file.md]"
+argument-hint: "[--grill] [feature description | path/to/file.md]"
 disable-model-invocation: true
 ---
 
@@ -11,7 +11,8 @@ Create an implementation plan before writing any code. Run inline; do not delega
 
 ## Steps
 
-1. **Restate the requirements** in clear terms. If the input is empty or ambiguous, ask what should be planned.
+1. **Restate the requirements** in clear terms. If the input is empty, ask what should be planned.
+   - **Settle open decisions with `grill`.** Invoke the `grill` skill first when the arguments include `--grill`, or when the request leaves decisions open that would change the plan (scope, states, data source, which component to reuse). Plan from the decisions it settles.
 2. **Ground the plan in the codebase.** Find the existing patterns the work should mirror and cite them as `path:line`: naming, component structure, styling system and tokens, data access, error handling, tests. If nothing similar exists, say so. Do not invent a pattern.
 3. **Break the work into phases**, each with concrete, actionable steps and the files they touch.
 4. **Name dependencies** between steps and any new packages.

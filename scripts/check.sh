@@ -16,7 +16,7 @@ for f in skills/*/SKILL.md; do
 done
 
 # Attribution lives in THIRD_PARTY_NOTICES.md only.
-if grep -rniE 'kowalski|emil|krehel|jakub|animations\.dev' skills agents global README.md \
+if grep -rniE 'kowalski|emil|krehel|jakub|pocock|animations\.dev' skills agents global README.md \
      | grep -v 'sonner\.emilkowal\.ski'; then
   fail "author references outside THIRD_PARTY_NOTICES.md"
 fi
