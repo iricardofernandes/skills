@@ -23,7 +23,7 @@ Or from a clone, which also links `global/CLAUDE.md` into `~/.claude`:
 | Stage | Skills |
 |---|---|
 | **Plan** | `plan` — restate, ground in the codebase, phase the work, wait for a go-ahead |
-| **Build** | `build-design` (Figma or image to code), `animate`, `animate-expo`, `mobile-native`, `pick-ui-library` |
+| **Build** | `components` (find and reuse before creating, one component per pattern, project inventory; `/components` audits duplicates), `component-specs` (how selects, date pickers, tables, overlays and every control should look and behave), `build-design` (Figma or image to code), `animate`, `animate-expo`, `mobile-native`, `pick-ui-library` |
 | **Explore** | `variant` (several directions behind a picker), `state-machine` (every state of a component), `break` (worst-case content), `explain-interface` (how a site or effect was built) |
 | **Polish** | `better-ui`, `better-typography`, `better-colors`, `better-layout`, `better-writing`, `better-accessibility`, `design-eng`, `apple-design` |
 | **Motion** | `find-animation-opportunities`, `improve-animations`, `animation-performance`, `animation-vocabulary` |
@@ -31,12 +31,17 @@ Or from a clone, which also links `global/CLAUDE.md` into `~/.claude`:
 
 Skills marked user-invoked only run when you call them, for example `/variant` or `/interface-review` (use `/craft:variant` if another installed skill has the same name). The rest also trigger on their own when the task matches.
 
+## UI reminder hook
+
+Skills load when the model decides they match, and in long UI tasks it often does not. The plugin ships a `UserPromptSubmit` hook (`hooks/ui-reminder.sh`) that, when a prompt is about UI (pages, forms, tables, components, styling, in English or Portuguese), tells the model to load `components` and `component-specs` before writing code. It prints nothing for other prompts.
+
 ## Repository layout
 
 ```
 .claude-plugin/   plugin and marketplace manifests
 skills/           one folder per skill
 agents/           code-reviewer, security-reviewer
+hooks/            UI reminder hook
 global/CLAUDE.md  personal global instructions, linked by install.sh
 upstream/         where adapted skills came from, pinned by commit
 scripts/          check.sh (run before every push), upstream-diff.sh

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Components"
+  short_description: "One component per UI pattern, found and reused before rebuilding"

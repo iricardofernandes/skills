@@ -1,0 +1,3 @@
+interface:
+  display_name: "Component specs"
+  short_description: "How common UI components should look and behave"
