@@ -1,0 +1,10 @@
+{
+  "name": "craft",
+  "description": "Skills for building interfaces that feel right: layout, typography, color, accessibility, writing, motion, review and planning.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ricardo Fernandes"
+  },
+  "repository": "https://github.com/iricardofernandes/skills",
+  "license": "MIT"
+}

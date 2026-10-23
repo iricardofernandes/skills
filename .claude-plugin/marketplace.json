@@ -1,0 +1,14 @@
+{
+  "name": "skills",
+  "description": "Ricardo Fernandes' agent skills.",
+  "owner": {
+    "name": "Ricardo Fernandes"
+  },
+  "plugins": [
+    {
+      "name": "craft",
+      "source": "./",
+      "description": "Skills for building interfaces that feel right: layout, typography, color, accessibility, writing, motion, review and planning."
+    }
+  ]
+}
