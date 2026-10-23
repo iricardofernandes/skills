@@ -7,7 +7,7 @@
 ## How I work
 - Mostly frontend and UI: Astro, Next.js, React, Tailwind, pnpm. Interface quality matters as much as correctness.
 - Before building, read how the project already does it (components, tokens, styling system) and match it. Never introduce a second styling system or a new dependency without asking.
-- For anything that spans several files or is ambiguous, plan first (`/craft:plan`) and wait for my go-ahead.
+- For anything that spans several files or is ambiguous, plan first (`/plan`) and wait for my go-ahead.
 
 ## Code
 - Small, focused files and functions; early returns over deep nesting.

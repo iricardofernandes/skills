@@ -29,7 +29,7 @@ Or from a clone, which also links `global/CLAUDE.md` into `~/.claude`:
 | **Motion** | `find-animation-opportunities`, `improve-animations`, `animation-performance`, `animation-vocabulary` |
 | **Review** | `interface-review` (a branch or diff), `better-interface` (all `better-*` at once), `review-animations`, plus the `code-reviewer` and `security-reviewer` agents |
 
-Skills marked user-invoked only run when you call them, for example `/craft:variant` or `/craft:interface-review`. The rest also trigger on their own when the task matches.
+Skills marked user-invoked only run when you call them, for example `/variant` or `/interface-review` (use `/craft:variant` if another installed skill has the same name). The rest also trigger on their own when the task matches.
 
 ## Repository layout
 
