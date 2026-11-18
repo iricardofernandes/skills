@@ -1,7 +1,6 @@
 ---
 name: interface-review
-disable-model-invocation: true
-description: Reviews a branch, pull request or uncommitted change for the interface problems it introduced or regressed, across accessibility, layout, writing, typography, color and UI.
+description: Reviews a branch, pull request or uncommitted change for the interface problems it introduced or regressed, across accessibility, layout, writing, typography, color and UI. Use after a UI change and before calling it done, or when asked to review a branch, PR or diff.
 ---
 
 # Interface review

@@ -1,0 +1,26 @@
+# Adapter: FigCraft (FigCraft MCP)
+
+How the skill's verbs map to the FigCraft MCP tools. FigCraft builds layers with commands, not HTML: auto layout frames, text, components with variants, and variables. Attached to the open app (`figcraft-cli mcp --attach <port>`) every step shows on screen; headless (`figcraft-cli mcp`) it edits the file. Parameters for every call: [figcraft-commands.md](../../../design/references/figcraft-commands.md).
+
+| Skill verb | In FigCraft |
+|---|---|
+| Start | `inspect_ui`, then `inspect_document {outline: true, allPages: true}` for pages and boards. An unsaved document: `save_file {path: "design.figcraft"}` in the project folder first |
+| Read the design system | `variable.export {format: "css"}` for tokens; the guide page from `inspect_document`; `get_node {id, outline: true}` on its boards |
+| Read exact values | `get_node {id, fields}` or `inspect.code {id, language: "css"}`. Never read sizes or colours from a screenshot |
+| Create a board | `page.add`/`page.select` for the page, then a top-level `create_node {type: "frame"}` with vertical `layout` and `sizingV: "hug"`, on a page "Guide": `Guide · Foundations · Colour`, `Guide · Foundations · Type & scales`, `Guide · Component index`, `Guide · <Component>` |
+| Register tokens | After the person approves the foundations: `variable.createCollection` "Tokens", then `variable.create` per token named by role with `/` groups (`color/primary`, `space/4`, `radius/md`); `variable.set` to change one. Types variables can't hold (shadows, durations, easings) go on the foundations board as text, marked "not a variable" |
+| Register tokens (import) | Read existing variables first (`variable.export`). A name that already exists **with a different value is a conflict** for the inventory stop, never a silent `variable.set` |
+| Draw a component | The component set lives on a page **Components**: mains named `Variant=…, Size=…, State=…`, joined with `component.combineVariants`, the label a `text` property. The guide board shows **instances**, never the set itself: the legend; an **Examples** row with real labels (`instance.setProperties`); and the **states matrix** as a grid with a header row (states) and a header column (variants), one instance per cell and `n/a` cells written with their reason |
+| Build a section | One `batch` per visual group: auto layout frames, then text. Colours bind with `$var`, radius and spacing with `variable.bind`. Name every layer after what it is |
+| Reuse a piece | Instances, never copied layers: `instance.create`, then `instance.setProperties` for what changes per copy |
+| Make a state variant of a board | `edit.duplicate {ids: [board]}`, `object.rename`, then change only what the state changes |
+| Look at it | `screenshot {ids: [board]}` after each section (raise `scale` only for small text) |
+| Fix clipping | Boards hug their height; don't guess heights |
+| Temporary exploration area | A page `Exploration · <topic>` (`page.add`), deleted after the pick |
+| Finish | `save_file` so the work is on disk; tell the person the file name |
+
+Notes:
+- Inter is built into FigCraft; for other families check `text.missingFonts` before the first text.
+- Icons are SVG files in a folder of the project, imported once as components (the app reads only inside the project).
+- Repeated rows: fixed-width slots for icons and trailing actions, so columns line up.
+- Don't show layer ids to the person; refer to boards by name.

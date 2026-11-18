@@ -1,6 +1,6 @@
 ---
 name: build-design
-description: Builds UI from a Figma file or a design image so it matches the design, using your project's existing tokens and components.
+description: Builds UI from a FigCraft file, a Figma file or a design image so it matches the design, using your project's existing tokens and components. Use after `design` has drawn the screens, or when handed a design to implement.
 ---
 
 # Build design
@@ -15,11 +15,13 @@ It owns no domain rules. Where the design breaks one, build it as designed and r
 
 A Figma link means the Figma MCP. Search the available and deferred tools for `figma` before saying it is unavailable, since the server often sits under a name you did not expect. A server that lists only an authenticate tool is connected but signed out, so ask the user to authenticate. With no Figma tool at all, ask the user to connect one, and do not build from memory or guesswork meanwhile. [figma.md](figma.md) holds which tools to call and what each returns.
 
+A `.figcraft` file, the usual source when `design` drew the screens, is read with `figcraft-cli` headless, so the open app is left alone. [figcraft.md](figcraft.md) holds the calls, how to turn its token export into the project's theme, and the comparison gotchas.
+
 A screenshot or exported image has no values to read. Sizes are ratios to the capture, so state the scale you assumed and treat every measurement as an estimate. Ask for the Figma link when one exists, since it replaces the whole estimate.
 
 Scope the run to the frames named. Frames that show the same thing at different widths are one piece at several breakpoints, not separate pieces.
 
-This step is done when you hold a screenshot of every frame in scope and its values for spacing, size, radius, color, type and the components used. From a Figma file they are exact. From an image they are estimates at the scale you stated.
+This step is done when you hold a screenshot of every frame in scope and its values for spacing, size, radius, color, type and the components used. From a FigCraft or Figma file they are exact. From an image they are estimates at the scale you stated.
 
 ## 2. Map the design onto the project
 

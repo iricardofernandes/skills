@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 # UserPromptSubmit: remind the model to load the right skills before acting.
-# UI prompts get the component skills, bug reports get the debug loop. Silent otherwise.
+# Design prompts get the design-first flow, UI prompts get the component skills,
+# bug reports get the debug loop. Silent otherwise.
 input="$(cat)"
+
+design_terms='\b(desenh(a|ar|e|ou)|redesenh(a|ar|e)|mock ?ups?|wireframes?|prot[oó]tipos?|figcraft|design (the|a|an|this|our)( [a-z-]+)? (page|screen|flow|ui)s?|design d[aoe]s? (tela|p[aá]gina|fluxo)s?|redesign)\b'
+
+if printf '%s' "$input" | grep -qiE "$design_terms"; then
+  cat <<'MSG'
+This request is about designing screens. Invoke the `design` skill first: it draws every screen, state and component in the design tool before any code. Implement from the drawn boards afterwards with `build-design`.
+MSG
+fi
 
 ui_terms='\b(ui|ux|interface|layout|design|page|screen|component|components|form|table|data ?table|select|combobox|dropdown|input|checkbox|radio|switch|toggle|slider|date ?picker|calendar|button|modal|dialog|sheet|drawer|popover|tooltip|toast|tabs|sidebar|navbar|nav|card|badge|avatar|skeleton|css|tailwind|shadcn|styl(e|ing)|p[aá]gina|tela|componente|componentes|formul[aá]rio|tabela|bot[aã]o|filtro|filtros|estilo|estiliza[cç][aã]o)\b'
 

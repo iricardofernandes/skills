@@ -29,7 +29,7 @@ When the scope is too large to inspect credibly, narrow it to one complete flow.
 
 ### 2. Send a change to `interface-review`
 
-A request naming a branch, pull request, commit range or uncommitted changes is a change review. Say so and ask the user to run `interface-review`, which is user-invoked and cannot be started from here. Never resolve a change scope yourself, because a guessed diff gives the report a scope nobody can check.
+A request naming a branch, pull request, commit range or uncommitted changes is a change review. Say so and invoke `interface-review`, which resolves the change scope. Leave the scope to it, because a guessed diff gives the report a scope nobody can check.
 
 When `interface-review` hands a review back, apply everything below to it. The cap and the verdict cover `Introduced` and `Regression` findings only, so a change whose only findings are `Pre-existing` is an `Approve`.
 
